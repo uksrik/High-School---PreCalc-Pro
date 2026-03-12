@@ -39,7 +39,7 @@ const CurriculumView: React.FC<CurriculumViewProps> = ({ onLaunch }) => {
             <div className="bg-indigo-600 p-4 text-white flex justify-between items-center">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider opacity-80">Weeks {chapter.weeks}</span>
-                <h3 className="text-xl font-bold">Chapter {chapter.id}: {chapter.title}</h3>
+                <h3 className="text-xl font-bold">Unit {chapter.id}: {chapter.title}</h3>
               </div>
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold">
                 {chapter.id}

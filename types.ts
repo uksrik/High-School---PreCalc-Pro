@@ -1,4 +1,12 @@
 
+export interface Lesson {
+  title: string;
+  type: 'Study' | 'Checkup' | 'Quiz' | 'Explore' | 'Review' | 'Practice' | 'Discuss' | 'Test' | 'Diagnostic';
+  duration?: string;
+  scoring?: string;
+  description?: string;
+}
+
 export interface Chapter {
   id: number;
   title: string;
@@ -8,6 +16,7 @@ export interface Chapter {
   semester: 1 | 2;
   description: string;
   suggestedEquations?: string[];
+  lessons?: Lesson[];
 }
 
 // Fixed missing Lab interface definition

@@ -32,7 +32,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
     { id: 'dashboard', label: 'Dashboard', icon: '📊' },
     { id: 'curriculum', label: 'Curriculum', icon: '📚' },
     { id: 'study', label: 'Study Center', icon: '🎓' },
-    { id: 'lens', label: 'Larson Lens', icon: '🔍' },
+    { id: 'lens', label: 'Honors Lens', icon: '🔍' },
     { id: 'cheatsheets', label: 'Cheat Sheets', icon: '📝' },
   ];
 

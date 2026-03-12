@@ -22,7 +22,7 @@ const StudyHub: React.FC<StudyHubProps> = ({ onSelectLesson, onSelectTest, onSel
           <div key={chapter.id} className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all p-6">
             <div className="flex justify-between items-start mb-4">
               <div>
-                <h3 className="text-xl font-bold text-slate-900">Chapter {chapter.id}: {chapter.title}</h3>
+                <h3 className="text-xl font-bold text-slate-900">Unit {chapter.id}: {chapter.title}</h3>
                 <div className="flex gap-2 mt-1">
                   {chapter.standards.map(s => (
                     <span key={s} className="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded uppercase">
@@ -42,7 +42,7 @@ const StudyHub: React.FC<StudyHubProps> = ({ onSelectLesson, onSelectTest, onSel
                 className="flex flex-col items-center justify-center p-3 bg-indigo-50 rounded-2xl border border-indigo-100 group hover:bg-indigo-600 transition-all"
               >
                 <span className="text-xl mb-1 group-hover:scale-110 transition-transform">📖</span>
-                <span className="text-[10px] font-bold text-indigo-700 group-hover:text-white uppercase tracking-tighter">Lesson</span>
+                <span className="text-[10px] font-bold text-indigo-700 group-hover:text-white uppercase tracking-tighter">Study</span>
               </button>
               <button 
                 onClick={() => onSelectQuiz(chapter)}
@@ -56,7 +56,7 @@ const StudyHub: React.FC<StudyHubProps> = ({ onSelectLesson, onSelectTest, onSel
                 className="flex flex-col items-center justify-center p-3 bg-emerald-50 rounded-2xl border border-emerald-100 group hover:bg-emerald-600 transition-all"
               >
                 <span className="text-xl mb-1 group-hover:scale-110 transition-transform">📝</span>
-                <span className="text-[10px] font-bold text-emerald-700 group-hover:text-white uppercase tracking-tighter">CAASPP</span>
+                <span className="text-[10px] font-bold text-emerald-700 group-hover:text-white uppercase tracking-tighter">Test</span>
               </button>
             </div>
           </div>

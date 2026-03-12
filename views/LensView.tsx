@@ -36,7 +36,7 @@ const LensView: React.FC<LensViewProps> = ({ initialPrompt }) => {
     setLoading(true);
     setResponse('');
     const text = await getAITutorResponse(
-      prompt || "Analyze this precalculus problem and guide me through the steps using Larson 2007 methods.",
+      prompt || "Analyze this precalculus problem and guide me through the steps using Honors Precalculus methods.",
       image || undefined
     );
     setResponse(text || '');
@@ -47,8 +47,8 @@ const LensView: React.FC<LensViewProps> = ({ initialPrompt }) => {
     <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-top-4 duration-500">
       <header className="text-center">
         <div className="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-bold mb-4 uppercase tracking-widest">AI-Powered</div>
-        <h2 className="text-4xl font-bold text-slate-900">The Larson Lens</h2>
-        <p className="text-slate-500 mt-2">Scan any page or problem from your Larson 2007 book for instant CA-aligned guidance.</p>
+        <h2 className="text-4xl font-bold text-slate-900">The Honors Lens</h2>
+        <p className="text-slate-500 mt-2">Scan any problem or study guide for instant CA-aligned guidance and multi-source analysis.</p>
       </header>
 
       <div className="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
@@ -142,8 +142,8 @@ const LensView: React.FC<LensViewProps> = ({ initialPrompt }) => {
         <div className="p-4 bg-emerald-50 border border-emerald-100 rounded-xl flex space-x-3">
           <span className="text-2xl">✅</span>
           <div>
-            <h4 className="font-bold text-emerald-900 text-sm">Larson Lens Tip</h4>
-            <p className="text-emerald-800 text-xs">Clearer photos of the textbook's graphs yield better analysis of asymptotes and local extrema.</p>
+            <h4 className="font-bold text-emerald-900 text-sm">Honors Lens Tip</h4>
+            <p className="text-emerald-800 text-xs">Clearer photos of graphs yield better analysis of asymptotes and local extrema.</p>
           </div>
         </div>
       </div>

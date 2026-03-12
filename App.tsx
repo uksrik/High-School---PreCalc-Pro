@@ -64,7 +64,7 @@ const App: React.FC = () => {
     }
 
     switch (currentView) {
-      case 'dashboard': return <Dashboard onResume={() => handleLaunchLesson({ id: 4, title: "Trigonometry", weeks: "10–13", focus: "Radian measure, unit circle (F-TF), and graphing sine/cosine.", standards: ["F-TF.1", "F-TF.2", "F-TF.5"], semester: 1, description: "Transition from triangle geometry to the circular functions of trigonometry." })} />;
+      case 'dashboard': return <Dashboard onResume={() => handleLaunchLesson({ id: 1, title: "Advanced Function Analysis I", weeks: "1–2", focus: "Parent functions, transformations, composition, and inverses.", standards: ["F-IF.7", "F-BF.3", "F-BF.4"], semester: 1, description: "Master parent functions and their transformations. Study function composition (f ∘ g) and the conditions for inverses." })} />;
       case 'curriculum': return <CurriculumView onLaunch={handleLaunchLesson} />;
       case 'study': return <StudyHub onSelectLesson={setActiveTeachingLesson} onSelectTest={setActiveTest} onSelectQuiz={setActiveQuiz} />;
       case 'lens': return <LensView initialPrompt={lensInitialPrompt} />;
@@ -73,7 +73,7 @@ const App: React.FC = () => {
           <div className="flex flex-col items-center justify-center h-[70vh] text-center space-y-4 animate-in zoom-in-95 duration-500">
             <div className="text-6xl">📝</div>
             <h2 className="text-2xl font-bold text-slate-900">Cheat Sheet Builder</h2>
-            <p className="text-slate-500 max-w-md">Select your current Larson chapter to generate a customized California Standard Reference Sheet.</p>
+            <p className="text-slate-500 max-w-md">Select your current Unit to generate a customized California Standard Reference Sheet.</p>
             <div className="flex gap-4">
               <button onClick={() => alert("Simulating PDF Generation...")} className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 shadow-lg active:scale-95">Unit Circle PDF</button>
               <button onClick={() => alert("Simulating PDF Generation...")} className="px-6 py-3 bg-slate-200 text-slate-700 rounded-xl font-bold hover:bg-slate-300 active:scale-95">Identities Sheet</button>
@@ -98,7 +98,7 @@ const App: React.FC = () => {
             <option value="dashboard">Dashboard</option>
             <option value="curriculum">Curriculum</option>
             <option value="study">Study Center</option>
-            <option value="lens">Larson Lens</option>
+            <option value="lens">Honors Lens</option>
             <option value="cheatsheets">Cheat Sheets</option>
           </select>
         </div>

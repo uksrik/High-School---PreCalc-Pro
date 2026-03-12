@@ -19,20 +19,20 @@ const Dashboard: React.FC<DashboardProps> = ({ onResume }) => {
     <div className="space-y-8">
       <header>
         <h2 className="text-3xl font-bold text-slate-900">Welcome back, Scholar!</h2>
-        <p className="text-slate-500">Mastering Larson 2007: California Edition</p>
+        <p className="text-slate-500">Mastering Honors Precalculus: California Edition</p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
           <div>
-            <span className="text-sm font-medium text-indigo-600">Current Chapter</span>
-            <h3 className="text-xl font-bold mt-1">Ch 4: Trigonometry</h3>
+            <span className="text-sm font-medium text-indigo-600">Current Unit</span>
+            <h3 className="text-xl font-bold mt-1">Unit 1: Function Analysis</h3>
           </div>
           <button 
             onClick={onResume}
             className="mt-4 text-left w-full p-3 bg-indigo-50 rounded-lg text-indigo-700 text-sm font-semibold hover:bg-indigo-100 transition-colors"
           >
-            Resume Lesson 4.2 →
+            Resume Lesson 1.1 →
           </button>
         </div>
 
@@ -69,23 +69,34 @@ const Dashboard: React.FC<DashboardProps> = ({ onResume }) => {
         </div>
 
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-          <h3 className="font-bold mb-4">CA Standards Progress</h3>
-          <div className="space-y-4">
-            {[
-              { label: 'F-IF.7: Graphing Functions', p: 85 },
-              { label: 'N-CN.7: Complex Roots', p: 60 },
-              { label: 'F-TF.1: Radian Measures', p: 40 },
-            ].map(std => (
-              <div key={std.label}>
-                <div className="justify-between flex text-xs font-medium mb-1">
-                  <span>{std.label}</span>
-                  <span>{std.p}%</span>
-                </div>
-                <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                  <div className="bg-indigo-600 h-full" style={{ width: `${std.p}%` }} />
-                </div>
+          <h3 className="font-bold mb-4">Recommended Resources</h3>
+          <div className="space-y-3">
+            <a 
+              href="https://www.khanacademy.org/math/precalculus" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center p-3 border border-slate-100 rounded-xl hover:bg-slate-50 transition-colors group"
+            >
+              <span className="text-xl mr-3">🎓</span>
+              <div>
+                <p className="text-sm font-bold text-slate-900">Khan Academy Precalculus</p>
+                <p className="text-[10px] text-slate-500">Comprehensive video lessons & practice</p>
               </div>
-            ))}
+              <span className="ml-auto text-slate-300 group-hover:text-indigo-500">↗</span>
+            </a>
+            <a 
+              href="https://apcentral.collegeboard.org/courses/ap-precalculus" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center p-3 border border-slate-100 rounded-xl hover:bg-slate-50 transition-colors group"
+            >
+              <span className="text-xl mr-3">📘</span>
+              <div>
+                <p className="text-sm font-bold text-slate-900">College Board AP Syllabus</p>
+                <p className="text-[10px] text-slate-500">Official standards & exam preparation</p>
+              </div>
+              <span className="ml-auto text-slate-300 group-hover:text-indigo-500">↗</span>
+            </a>
           </div>
         </div>
       </div>

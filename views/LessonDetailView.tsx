@@ -13,7 +13,7 @@ const LessonDetailView: React.FC<LessonDetailViewProps> = ({ chapter, onBack, on
   const [showSandbox, setShowSandbox] = useState(chapter.id === 1 || chapter.id === 4);
 
   const studyTools = [
-    { name: "Digital Flashcards", action: () => alert(`Opening flashcards for Chapter ${chapter.id}: ${chapter.title}`) },
+    { name: "Digital Flashcards", action: () => alert(`Opening flashcards for Unit ${chapter.id}: ${chapter.title}`) },
     { name: "Standards Quiz", action: () => alert(`Generating practice quiz for CA Standard ${chapter.standards[0] || 'N/A'}`) },
     { name: "Formula Recap", action: () => alert(`Downloading high-res formula sheet for ${chapter.title}`) }
   ];
@@ -34,7 +34,7 @@ const LessonDetailView: React.FC<LessonDetailViewProps> = ({ chapter, onBack, on
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-1">
-              <span className="text-sm font-bold text-indigo-600 uppercase tracking-tight">Chapter {chapter.id}</span>
+              <span className="text-sm font-bold text-indigo-600 uppercase tracking-tight">Unit {chapter.id}</span>
               {isModelingChapter && (
                 <span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-[10px] font-bold rounded uppercase tracking-widest">
                   Interactive Modeling (+)
@@ -102,24 +102,38 @@ const LessonDetailView: React.FC<LessonDetailViewProps> = ({ chapter, onBack, on
             </section>
 
             <section className="space-y-4">
-              <h3 className="text-xl font-bold text-slate-900">Essential Larson Exercises</h3>
-              <p className="text-xs text-slate-400 font-medium -mt-2">Select a task to analyze with the Larson Lens AI.</p>
+              <h3 className="text-xl font-bold text-slate-900">Unit Lessons & Activities</h3>
+              <p className="text-xs text-slate-400 font-medium -mt-2">Follow the Apex Learning syllabus sequence. Select a study task to analyze with AI.</p>
               <div className="space-y-2">
-                {[
-                  chapter.id === 1 ? "Section 1.2: Parent Functions & Transformations" : "Section 4.2: Trigonometric Functions & Unit Circle",
-                  chapter.id === 1 ? "Section 1.3: Modeling with Shifting & Scaling" : "Section 4.5: Graphs of Sine and Cosine",
-                  "Larson Review: Cumulative Skill Check",
-                  "CA Application: Realistic Data Modeling Lab"
-                ].map((item, idx) => (
+                {chapter.lessons?.map((lesson, idx) => (
                   <div 
                     key={idx} 
-                    onClick={() => onLensClick(`I'm working on "${item}" from Chapter ${chapter.id} of Larson 2007. Can you explain the core concepts and give me a hint for the first few problems?`)}
+                    onClick={() => onLensClick(`I'm studying "${lesson.title}" (${lesson.type}) from Unit ${chapter.id}: ${chapter.title}. ${lesson.description || ''} Can you provide a summary and key practice tips?`)}
                     className="flex items-center justify-between p-4 bg-white border border-slate-100 rounded-xl hover:border-indigo-300 hover:bg-indigo-50/30 transition-all cursor-pointer group shadow-sm hover:shadow-md"
                   >
-                    <span className="text-sm font-medium text-slate-700">{item}</span>
+                    <div className="flex items-center space-x-3">
+                      <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-[10px] font-bold ${
+                        lesson.type === 'Study' ? 'bg-blue-100 text-blue-600' :
+                        lesson.type === 'Quiz' ? 'bg-amber-100 text-amber-600' :
+                        lesson.type === 'Test' ? 'bg-rose-100 text-rose-600' :
+                        'bg-slate-100 text-slate-600'
+                      }`}>
+                        {lesson.type.substring(0, 1)}
+                      </span>
+                      <div>
+                        <span className="text-sm font-bold text-slate-700 block">{lesson.title}</span>
+                        <div className="flex items-center space-x-2">
+                          <span className="text-[10px] text-slate-400 uppercase font-bold">{lesson.type}</span>
+                          {lesson.duration && <span className="text-[10px] text-slate-300">• {lesson.duration}</span>}
+                        </div>
+                      </div>
+                    </div>
                     <span className="text-indigo-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all">→</span>
                   </div>
                 ))}
+                {(!chapter.lessons || chapter.lessons.length === 0) && (
+                  <p className="text-slate-400 text-sm italic">Detailed lesson breakdown coming soon.</p>
+                )}
               </div>
             </section>
           </div>
