@@ -1,0 +1,7 @@
+{
+  "name": "PreCalc Pro: California Edition",
+  "description": "A comprehensive precalculus tutor app aligned with Larson 2007 and California Common Core State Standards, featuring AI tutoring, semester mapping, and Excel modeling labs.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
