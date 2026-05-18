@@ -14,8 +14,8 @@ interface LessonStudyViewProps {
 const LessonStudyView: React.FC<LessonStudyViewProps> = ({ chapter, onBack }) => {
   const [loading, setLoading] = useState(true);
   const [sources, setSources] = useState<TeachingSource[]>([]);
-  // Automatically show the graph for modeling-heavy chapters (1 and 4)
-  const [showGraph, setShowGraph] = useState(chapter.id === 1 || chapter.id === 4);
+  // Automatically show the graph for modeling-heavy units (1, 2, and 4)
+  const [showGraph, setShowGraph] = useState(chapter.id === 1 || chapter.id === 2 || chapter.id === 4);
   const [masteredStandards, setMasteredStandards] = useState<string[]>([]);
 
   const toggleStandard = (std: string) => {
@@ -45,12 +45,12 @@ const LessonStudyView: React.FC<LessonStudyViewProps> = ({ chapter, onBack }) =>
       if (content) {
         const generatedSources: TeachingSource[] = [
           {
-            name: "Larson 2007 Textbook (Concept Excerpt)",
+            name: "Apex Learning Honors Content",
             type: "Textbook",
             content: content.textbookExcerpt
           },
           {
-            name: "California Standards Connection",
+            name: "CA CCSS Modeling (+) Connection",
             type: "Standard",
             content: content.standardsConnection
           },
@@ -78,7 +78,7 @@ const LessonStudyView: React.FC<LessonStudyViewProps> = ({ chapter, onBack }) =>
     fetchLesson();
   }, [chapter]);
 
-  const isModelingChapter = chapter.id === 1 || chapter.id === 4;
+  const isModelingChapter = chapter.id === 1 || chapter.id === 2 || chapter.id === 4;
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-20">
@@ -109,7 +109,7 @@ const LessonStudyView: React.FC<LessonStudyViewProps> = ({ chapter, onBack }) =>
               <span className="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-[10px] font-bold rounded uppercase tracking-widest">Mastery Hub</span>
               <span className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Weeks {chapter.weeks}</span>
             </div>
-            <h2 className="text-4xl font-black text-slate-900 leading-tight">Chapter {chapter.id}: {chapter.title}</h2>
+            <h2 className="text-4xl font-black text-slate-900 leading-tight">Unit {chapter.id}: {chapter.title}</h2>
             <p className="text-slate-500 mt-2 font-medium">{chapter.description}</p>
           </header>
 
@@ -118,12 +118,12 @@ const LessonStudyView: React.FC<LessonStudyViewProps> = ({ chapter, onBack }) =>
               <div className="flex items-center justify-between mb-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
                 <div>
                   <h3 className="text-xl font-bold text-slate-800">Modeling Laboratory</h3>
-                  <p className="text-xs text-slate-500 font-medium">Interactive Desmos Integration • Larson 2007 Curriculum</p>
+                  <p className="text-xs text-slate-500 font-medium">Interactive Desmos Integration • Honors Curriculum</p>
                 </div>
                 {isModelingChapter && (
                   <div className="text-right">
                     <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded border border-emerald-100 uppercase tracking-tighter">
-                      Active Sliders for {chapter.id === 1 ? 'Transformations' : 'Periodic Data'}
+                      Active Sliders for {chapter.id === 1 ? 'Transformations' : chapter.id === 2 ? 'Sinusoidal Data' : 'Rational Behavior'}
                     </span>
                   </div>
                 )}
@@ -138,10 +138,10 @@ const LessonStudyView: React.FC<LessonStudyViewProps> = ({ chapter, onBack }) =>
                 </h4>
                 <p className="text-sm text-indigo-900 font-medium leading-relaxed">
                   {chapter.id === 1 
-                    ? "Adjust sliders 'a', 'h', and 'k' to see how they transform the parent function $y=x^2$. Observe Standard F-BF.3 in action!"
-                    : chapter.id === 4 
-                    ? "Modify 'A' (Amplitude) and 'B' (Period adjustment) to fit periodic tides. Notice the midline shift 'D' for Standard F-TF.5."
-                    : "Use the library below to plot specific Larson review exercises."}
+                    ? "Adjust sliders 'a', 'h', and 'k' to see how they transform the parent function. Observe how composition affects the output!"
+                    : chapter.id === 2 
+                    ? "Modify 'A' (Amplitude) and 'B' (Period) to fit periodic tides. Notice the phase shift 'C' and midline 'D' for Standard F-TF.5."
+                    : "Use the library below to plot specific Honors review exercises."}
                 </p>
               </div>
 
@@ -199,7 +199,7 @@ const LessonStudyView: React.FC<LessonStudyViewProps> = ({ chapter, onBack }) =>
                         </div>
                         <div className="absolute bottom-4 left-4 right-4">
                           <p className="text-white font-bold text-sm drop-shadow-md">Video Walkthrough: {chapter.title}</p>
-                          <p className="text-slate-400 text-xs">Recommended Larson 2007 Tutorial</p>
+                          <p className="text-slate-400 text-xs">Recommended Honors Tutorial</p>
                         </div>
                       </div>
                       <div className="p-4 bg-slate-800/50">
@@ -259,7 +259,7 @@ const LessonStudyView: React.FC<LessonStudyViewProps> = ({ chapter, onBack }) =>
 
           <div className="mt-8 pt-6 border-t border-indigo-800">
             <div className="flex justify-between items-end mb-2">
-              <span className="text-[10px] font-bold uppercase opacity-60 tracking-wider">Chapter Progress</span>
+              <span className="text-[10px] font-bold uppercase opacity-60 tracking-wider">Unit Progress</span>
               <span className="text-xl font-black">{Math.round((masteredStandards.length / chapter.standards.length) * 100)}%</span>
             </div>
             <div className="w-full bg-indigo-800 h-2 rounded-full overflow-hidden">
@@ -275,10 +275,26 @@ const LessonStudyView: React.FC<LessonStudyViewProps> = ({ chapter, onBack }) =>
           <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Modeling Tip (+)</h4>
           <p className="text-xs text-slate-600 leading-relaxed italic">
             {chapter.id === 1 
-              ? "Use the sliders to verify that the vertex of y=a(x-h)^2+k is at (h, k). This is the 'Vertex Form' from Larson Section 1.3."
-              : chapter.id === 4 
-              ? "Experiment with B. The period of the sine function is 2π/B. If B=2, the wave compresses horizontally."
-              : "Interact with the visualization above to master the geometric interpretation of these CCSS standards."}
+              ? "Polynomial modeling (+) uses zeros and multiplicities to construct functions that describe physical boundaries or volume constraints."
+              : chapter.id === 2 
+              ? "Rational modeling (+) focuses on end behavior and asymptotes to describe constraints in real-world systems, such as average cost or concentration over time."
+              : chapter.id === 3
+              ? "Modeling with composition allows us to chain real-world processes. For example, if C(t) is cost over time and G(C) is gallons per cost, G(C(t)) models consumption."
+              : chapter.id === 4
+              ? "Exponential models (+) describe growth or decay with a constant ratio. Use recursive formulas in spreadsheets to model discrete compounding."
+              : chapter.id === 5
+              ? "Logarithmic modeling (+) is essential for linearizing exponential data using semi-log plots, allowing for easier trend analysis."
+              : chapter.id === 6
+              ? "Trigonometric modeling (+) uses transformations of parent functions (sin/cos) to fit periodic data like tides, sound waves, or seasonal cycles."
+              : chapter.id === 7
+              ? "Polar modeling (+) is ideal for systems with central symmetry, such as planetary orbits or circular motion in physics."
+              : chapter.id === 8
+              ? "Parametric modeling (+) allows for independent tracking of horizontal and vertical position, perfect for projectile motion analysis."
+              : chapter.id === 9
+              ? "Matrix modeling (+) provides a framework for multi-variable systems and linear transformations in computer graphics and data science."
+              : chapter.id === 10
+              ? "Limits and series modeling (+) describes long-term convergence and the accumulation of discrete values over time."
+              : "Interact with the visualization above to master the geometric interpretation of these AP standards."}
           </p>
         </div>
       </aside>

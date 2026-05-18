@@ -1,212 +1,157 @@
 
 export const MOCK_LESSONS: Record<number, any> = {
   1: {
-    textbookExcerpt: `### Unit 1: Functions
-**What is a Function?**
-A function is a relation in which each element of the domain is paired with exactly one element of the range.
-- **Vertical Line Test:** A curve in the coordinate plane is the graph of a function if and only if no vertical line intersects the curve more than once.
-- **Arithmetic of Functions:**
-  - $(f+g)(x) = f(x) + g(x)$
-  - $(f-g)(x) = f(x) - g(x)$
-  - $(fg)(x) = f(x) \cdot g(x)$
-  - $(f/g)(x) = f(x) / g(x), g(x) \neq 0$
-- **Composition:** $(f \circ g)(x) = f(g(x))$`,
-    standardsConnection: `### California CCSS Alignment
-**F-IF.1, F-IF.2:** Understanding the concept of a function and using function notation.
-**F-BF.1:** Building a function that models a relationship between two quantities.`,
-    aiSynthesis: `### Mastery Note: Function Composition
-When composing functions, work from the inside out. For $(f \circ g)(x)$, first evaluate $g(x)$, then use that result as the input for $f$.`,
+    textbookExcerpt: `### Unit 1: Polynomial Functions
+**Polynomial Zeros:**
+According to the **Fundamental Theorem of Algebra**, a polynomial of degree $n$ has exactly $n$ complex zeros (counting multiplicity).
+- **Multiplicity:** If $(x-c)^k$ is a factor, $c$ is a zero of multiplicity $k$. If $k$ is even, the graph touches the x-axis. If $k$ is odd, it crosses.
+- **End Behavior:** Determined by the leading term $a_n x^n$.`,
+    standardsConnection: `### AP Precalculus Alignment
+**Topic 1.1-1.6:** Change in functions, linear/quadratic models, and polynomial behavior.`,
+    aiSynthesis: `### Mastery Note: Rates of Change
+Polynomials exhibit varying rates of change. Linear functions have a constant first difference, while quadratics have a constant second difference.`,
     videoTutorial: {
-      title: "Unit 1: Functions & Arithmetic",
-      description: "Introduction to functions, domain, range, and operations.",
-      searchQuery: "Precalculus functions and their graphs tutorial"
+      title: "Unit 1: Polynomial Analysis",
+      description: "Analyzing zeros, multiplicity, and end behavior.",
+      searchQuery: "AP Precalculus polynomial functions tutorial"
     }
   },
   2: {
-    textbookExcerpt: `### Unit 2: Quadratic Functions
-**Forms of Quadratic Functions:**
-- **Standard Form:** $f(x) = ax^2 + bx + c$
-- **Vertex Form:** $f(x) = a(x-h)^2 + k$, where $(h, k)$ is the vertex.
-- **Quadratic Formula:** $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
-- **Complex Numbers:** $i = \sqrt{-1}$. Solutions to quadratics can be complex if the discriminant $b^2 - 4ac < 0$.`,
-    standardsConnection: `### California CCSS Alignment
-**A-SSE.3:** Choose and produce an equivalent form of an expression to reveal and explain properties.
-**N-CN.7:** Solve quadratic equations with real coefficients that have complex solutions.`,
-    aiSynthesis: `### Mastery Note: Optimization
-The vertex $(h, k)$ represents the maximum or minimum value of the quadratic function. In real-world problems, finding the vertex is often the key to optimization.`,
+    textbookExcerpt: `### Unit 2: Rational Functions
+**Asymptotes & Holes:**
+- **Vertical Asymptotes:** Occur where the denominator is zero (after simplification).
+- **Holes (Removable Discontinuities):** Occur where a factor is common to both numerator and denominator.
+- **Horizontal Asymptotes:** Compare degrees of $P(x)$ and $Q(x)$.`,
+    standardsConnection: `### AP Precalculus Alignment
+**Topic 1.7-1.10:** Rational functions and their graphical features.`,
+    aiSynthesis: `### Mastery Note: Limits at Infinity
+Horizontal asymptotes describe the limit of the function as $x \to \pm \infty$.`,
     videoTutorial: {
-      title: "Unit 2: Quadratic Mastery",
-      description: "Graphing quadratics and solving with complex numbers.",
-      searchQuery: "Precalculus quadratic functions and complex numbers"
+      title: "Unit 2: Rational Graphs",
+      description: "Mastering asymptotes and discontinuities.",
+      searchQuery: "AP Precalculus rational functions tutorial"
     }
   },
   3: {
-    textbookExcerpt: `### Unit 3: Polynomial & Rational Functions
-**Polynomials:**
-- **Synthetic Division:** A shortcut method for dividing a polynomial by a linear factor $(x - k)$.
-- **Fundamental Theorem of Algebra:** A polynomial of degree $n$ has exactly $n$ complex zeros (counting multiplicity).
-**Rational Functions:**
-- **Asymptotes:**
-  - Vertical: Where the denominator is zero (after simplification).
-  - Horizontal: Determined by the ratio of the leading coefficients if degrees are equal.`,
-    standardsConnection: `### California CCSS Alignment
-**A-APR.2, A-APR.3:** Remainder Theorem and identifying zeros of polynomials.
-**F-IF.7d:** Graphing rational functions and identifying asymptotes.`,
-    aiSynthesis: `### Mastery Note: End Behavior
-For large values of $|x|$, a polynomial's behavior is dominated by its leading term $a_n x^n$. This determines whether the graph goes to $\infty$ or $-\infty$.`,
+    textbookExcerpt: `### Unit 3: Function Composition & Inverses
+**Composition:** $(f \circ g)(x) = f(g(x))$.
+**Inverses:** $f(f^{-1}(x)) = x$.
+- **Domain Restriction:** Some functions (like $x^2$) require domain restrictions to be invertible.`,
+    standardsConnection: `### AP Precalculus Alignment
+**Topic 1.11-1.13:** Function composition and inverse properties.`,
+    aiSynthesis: `### Mastery Note: Reversing Operations
+Inverse functions 'undo' each other. Graphically, they are reflections across the line $y=x$.`,
     videoTutorial: {
-      title: "Unit 3: Polynomials & Rational Functions",
-      description: "Zeros of polynomials and rational function asymptotes.",
-      searchQuery: "Precalculus polynomial and rational functions tutorial"
+      title: "Unit 3: Composition & Inverses",
+      description: "Algebraic and graphical inverse relationships.",
+      searchQuery: "AP Precalculus function inverses tutorial"
     }
   },
   4: {
-    textbookExcerpt: `### Unit 4: Exponential & Logarithmic Functions
-**Exponential Functions:** $f(x) = ab^x$.
-- **Natural Base $e$:** $e \approx 2.71828$. Used in continuous growth $A = Pe^{rt}$.
-**Logarithmic Functions:** The inverse of exponential functions. $y = \log_b x \iff b^y = x$.
-- **Properties:**
-  - $\log_b(MN) = \log_b M + \log_b N$
-  - $\log_b(M/N) = \log_b M - \log_b N$
-  - $\log_b(M^p) = p \log_b M$`,
-    standardsConnection: `### California CCSS Alignment
-**F-LE.4:** Solve exponential equations using logarithms.
-**A-SSE.4:** Derive the formula for the sum of a finite geometric series.`,
-    aiSynthesis: `### Mastery Note: Change of Base
-To evaluate $\log_b a$ on a calculator, use the change of base formula: $\frac{\ln a}{\ln b}$ or $\frac{\log a}{\log b}$.`,
+    textbookExcerpt: `### Unit 4: Exponential Functions
+**Exponential Growth:** $f(x) = ab^x$.
+- **Arithmetic vs Geometric:** Arithmetic sequences model linear growth; Geometric sequences model exponential growth.
+- **Natural Base e:** $f(x) = ae^{rx}$ for continuous growth.`,
+    standardsConnection: `### AP Precalculus Alignment
+**Topic 2.1-2.8:** Exponential growth, sequences, and modeling.`,
+    aiSynthesis: `### Mastery Note: Constant Ratios
+Exponential functions have a constant ratio of outputs for equal intervals of inputs.`,
     videoTutorial: {
-      title: "Unit 4: Exponents & Logs",
-      description: "Solving exponential and logarithmic equations.",
-      searchQuery: "Precalculus exponential and logarithmic functions"
+      title: "Unit 4: Exponential Models",
+      description: "Growth, decay, and the natural base e.",
+      searchQuery: "AP Precalculus exponential functions tutorial"
     }
   },
   5: {
-    textbookExcerpt: `### Unit 5: Conic Sections
-**The Four Conics:**
-- **Circle:** $(x-h)^2 + (y-k)^2 = r^2$
-- **Ellipse:** $\frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1$
-- **Hyperbola:** $\frac{(x-h)^2}{a^2} - \frac{(y-k)^2}{b^2} = 1$
-- **Parabola:** $(y-k)^2 = 4p(x-h)$ or $(x-h)^2 = 4p(y-k)$`,
-    standardsConnection: `### California CCSS Alignment
-**G-GPE.1, 2, 3:** Deriving equations of circles, parabolas, ellipses, and hyperbolas.`,
-    aiSynthesis: `### Mastery Note: Identifying Conics
-Look at the coefficients of $x^2$ and $y^2$. If they are the same, it's a circle. If different signs, it's a hyperbola. If one is zero, it's a parabola.`,
+    textbookExcerpt: `### Unit 5: Logarithmic Functions
+**Logarithms:** $y = \log_b(x) \iff b^y = x$.
+- **Properties:** $\log(MN) = \log M + \log N$, $\log(M/N) = \log M - \log N$, $\log(M^p) = p \log M$.
+- **Semi-Log Plots:** Used to linearize exponential data.`,
+    standardsConnection: `### AP Precalculus Alignment
+**Topic 2.9-2.15:** Logarithmic properties and equations.`,
+    aiSynthesis: `### Mastery Note: Logarithmic Scales
+Logarithms allow us to work with data spanning many orders of magnitude, such as pH or the Richter scale.`,
     videoTutorial: {
-      title: "Unit 5: Conic Sections",
-      description: "Graphing and identifying circles, ellipses, and hyperbolas.",
-      searchQuery: "Precalculus conic sections tutorial"
+      title: "Unit 5: Logarithmic Analysis",
+      description: "Log properties and solving exponential equations.",
+      searchQuery: "AP Precalculus logarithms tutorial"
+    }
+  },
+  6: {
+    textbookExcerpt: `### Unit 6: Trigonometric Functions
+**Sinusoidal Models:** $y = A \sin(B(x-C)) + D$.
+- **Amplitude:** $|A|$.
+- **Period:** $2\pi/B$.
+- **Midline:** $y=D$.`,
+    standardsConnection: `### AP Precalculus Alignment
+**Topic 3.1-3.11:** Unit circle and sinusoidal modeling.`,
+    aiSynthesis: `### Mastery Note: Periodic Motion
+Trigonometric functions model cycles in nature, such as tides, sound waves, and seasonal temperatures.`,
+    videoTutorial: {
+      title: "Unit 6: Trig Modeling",
+      description: "Modeling periodic phenomena with sine and cosine.",
+      searchQuery: "AP Precalculus trigonometry tutorial"
     }
   },
   7: {
-    textbookExcerpt: `### Unit 7: Introduction to Trigonometry
-**Angles and Radians:**
-- $180^\circ = \pi$ radians.
-- **Arc Length:** $s = r\theta$ ($\theta$ in radians).
-**The Unit Circle:**
-- A circle with radius 1 centered at the origin.
-- $(x, y) = (\cos \theta, \sin \theta)$.
-- $\tan \theta = y/x$.`,
-    standardsConnection: `### California CCSS Alignment
-**F-TF.1, F-TF.2:** Understanding radian measure and the unit circle.`,
-    aiSynthesis: `### Mastery Note: Reference Angles
-The reference angle is the acute angle formed by the terminal side and the x-axis. It helps find trig values in any quadrant.`,
+    textbookExcerpt: `### Unit 7: Polar Functions & Complex Numbers
+**Polar Coordinates:** $(r, \theta)$.
+**Complex Polar Form:** $z = r(\cos \theta + i \sin \theta)$.
+- **De Moivre's Theorem:** $z^n = r^n(\cos n\theta + i \sin n\theta)$.`,
+    standardsConnection: `### AP Precalculus Alignment
+**Topic 3.12-3.15:** Polar coordinates and complex operations.`,
+    aiSynthesis: `### Mastery Note: Circular Geometry
+Polar coordinates are ideal for systems with central symmetry, like planetary orbits or circular motion.`,
     videoTutorial: {
-      title: "Unit 7: Trig Basics",
-      description: "Radians, degrees, and the unit circle.",
-      searchQuery: "Precalculus introduction to trigonometry"
+      title: "Unit 7: Polar & Complex",
+      description: "Graphing in polar and complex plane operations.",
+      searchQuery: "AP Precalculus polar functions tutorial"
     }
   },
   8: {
-    textbookExcerpt: `### Unit 8: Trigonometric Functions
-**Sine and Cosine Graphs:**
-- $y = A \sin(B(x - C)) + D$
-- $|A|$ is the **amplitude**.
-- $2\pi/B$ is the **period**.
-- $C$ is the **phase shift**.
-- $D$ is the **vertical shift** (midline).`,
-    standardsConnection: `### California CCSS Alignment
-**F-TF.5:** Model periodic phenomena with trigonometric functions.`,
-    aiSynthesis: `### Mastery Note: Periodicity
-Trig functions repeat their values in regular intervals. For $\sin$ and $\cos$, the standard period is $2\pi$. For $\tan$, it is $\pi$.`,
+    textbookExcerpt: `### Unit 8: Parametric Equations & Conic Sections
+**Parametrics:** $x(t)$ and $y(t)$ define position as a function of time.
+**Conics:**
+- **Ellipse:** $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$.
+- **Hyperbola:** $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$.`,
+    standardsConnection: `### AP Precalculus Alignment
+**Topic 4.1-4.4:** Parametric motion and conic sections.`,
+    aiSynthesis: `### Mastery Note: Motion Modeling
+Parametric equations allow us to separate horizontal and vertical motion, essential for physics applications.`,
     videoTutorial: {
-      title: "Unit 8: Graphing Trig Functions",
-      description: "Transforming sine and cosine graphs.",
-      searchQuery: "Precalculus graphing trigonometric functions"
+      title: "Unit 8: Parametrics & Conics",
+      description: "Modeling motion and analyzing geometric curves.",
+      searchQuery: "AP Precalculus parametric equations tutorial"
     }
   },
   9: {
-    textbookExcerpt: `### Unit 9: Working with Trig Functions
-**Inverse Trig Functions:**
-- $\arcsin x$, $\arccos x$, $\arctan x$.
-- Used to find the angle when the ratio is known.
-- **Restrictions:** Each inverse function has a restricted range to ensure it is a function.
-**Simple Harmonic Motion:**
-- $d = a \cos(\omega t)$ or $d = a \sin(\omega t)$.`,
-    standardsConnection: `### California CCSS Alignment
-**F-TF.4, F-TF.6:** Using inverse functions to solve trigonometric equations.`,
-    aiSynthesis: `### Mastery Note: Principal Values
-Calculators only give the "principal" value for inverse trig functions. You must use the unit circle to find all possible solutions in a given interval.`,
+    textbookExcerpt: `### Unit 9: Vectors & Matrices
+**Vectors:** $\vec{v} = \langle a, b \rangle$.
+**Matrices:** Used for linear transformations.
+- **Determinant:** $|A|$ determines if a matrix is invertible.`,
+    standardsConnection: `### AP Precalculus Alignment
+**Topic 4.5-4.14:** Vectors, matrices, and linear systems.`,
+    aiSynthesis: `### Mastery Note: Linear Algebra
+Matrices provide a powerful framework for solving large systems of equations and transforming geometric objects.`,
     videoTutorial: {
-      title: "Unit 9: Inverse Trig & Equations",
-      description: "Solving trig equations and inverse functions.",
-      searchQuery: "Precalculus solving trigonometric equations"
+      title: "Unit 9: Vectors & Matrices",
+      description: "Vector operations and matrix transformations.",
+      searchQuery: "AP Precalculus matrices tutorial"
     }
   },
   10: {
-    textbookExcerpt: `### Unit 10: Trigonometric Identities
-**Fundamental Identities:**
-- **Pythagorean:** $\sin^2 \theta + \cos^2 \theta = 1$
-- **Reciprocal:** $\csc \theta = 1/\sin \theta$, etc.
-- **Quotient:** $\tan \theta = \sin \theta / \cos \theta$
-**Sum and Difference Formulas:**
-- $\sin(u \pm v) = \sin u \cos v \pm \cos u \sin v$
-- $\cos(u \pm v) = \cos u \cos v \mp \sin u \sin v$`,
-    standardsConnection: `### California CCSS Alignment
-**F-TF.8, F-TF.9:** Proving and using trigonometric identities.`,
-    aiSynthesis: `### Mastery Note: Proving Identities
-Always start with the more complex side and use substitutions to make it match the simpler side. Don't "solve" across the equals sign.`,
+    textbookExcerpt: `### Unit 10: Limits & Series
+**Limits:** $\lim_{x \to c} f(x) = L$.
+**Series:** $\sum_{n=1}^\infty a_n$.
+- **Geometric Series:** Converges if $|r| < 1$.`,
+    standardsConnection: `### Honors/Calculus Prep
+Foundational concepts for Calculus and discrete mathematics.`,
+    aiSynthesis: `### Mastery Note: Infinite Sums
+The concept of a limit allows us to find the exact sum of an infinite number of terms in a convergent series.`,
     videoTutorial: {
-      title: "Unit 10: Trig Identities & Proofs",
-      description: "Verifying and using trigonometric identities.",
-      searchQuery: "Precalculus trigonometric identities tutorial"
-    }
-  },
-  11: {
-    textbookExcerpt: `### Unit 11: Applications of Trigonometry
-**Law of Sines:** $\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$
-- Used for AAS, ASA, and SSA (ambiguous case).
-**Law of Cosines:** $a^2 = b^2 + c^2 - 2bc \cos A$
-- Used for SSS and SAS.
-**Vectors:**
-- Magnitude: $\|v\| = \sqrt{x^2 + y^2}$.
-- Direction: $\theta = \arctan(y/x)$.`,
-    standardsConnection: `### California CCSS Alignment
-**G-SRT.10, G-SRT.11:** Applying Laws of Sines and Cosines to solve triangles.
-**N-VM.1, 3:** Understanding and using vectors.`,
-    aiSynthesis: `### Mastery Note: The Ambiguous Case
-When using the Law of Sines with SSA, always check if a second triangle is possible by calculating $180^\circ - \theta$.`,
-    videoTutorial: {
-      title: "Unit 11: Oblique Triangles & Vectors",
-      description: "Laws of Sines/Cosines and vector operations.",
-      searchQuery: "Precalculus law of sines and cosines tutorial"
-    }
-  },
-  12: {
-    textbookExcerpt: `### Unit 12: Complex Numbers
-**Polar Form of Complex Numbers:**
-- $z = r(\cos \theta + i \sin \theta)$ or $z = r e^{i\theta}$.
-- $r = |z| = \sqrt{a^2 + b^2}$.
-- $\theta = \text{arg}(z)$.
-**De Moivre's Theorem:**
-- $z^n = r^n(\cos n\theta + i \sin n\theta)$.`,
-    standardsConnection: `### California CCSS Alignment
-**N-CN.3, 4, 5:** Representing complex numbers in polar form and performing operations.`,
-    aiSynthesis: `### Mastery Note: Roots of Unity
-De Moivre's Theorem is extremely powerful for finding the $n$-th roots of a complex number, which are equally spaced around a circle in the complex plane.`,
-    videoTutorial: {
-      title: "Unit 12: Complex Numbers & Polars",
-      description: "Complex numbers in polar form and De Moivre's Theorem.",
-      searchQuery: "Precalculus complex numbers in polar form"
+      title: "Unit 10: Limits & Series",
+      description: "Preparing for Calculus with limits and sums.",
+      searchQuery: "Precalculus limits and series tutorial"
     }
   }
 };

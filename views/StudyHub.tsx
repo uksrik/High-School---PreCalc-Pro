@@ -49,7 +49,7 @@ const StudyHub: React.FC<StudyHubProps> = ({ onSelectLesson, onSelectTest, onSel
                 className="flex flex-col items-center justify-center p-3 bg-amber-50 rounded-2xl border border-amber-100 group hover:bg-amber-600 transition-all"
               >
                 <span className="text-xl mb-1 group-hover:scale-110 transition-transform">🧠</span>
-                <span className="text-[10px] font-bold text-amber-700 group-hover:text-white uppercase tracking-tighter">Quiz</span>
+                <span className="text-[10px] font-bold text-amber-700 group-hover:text-white uppercase tracking-tighter">Chapter Quiz</span>
               </button>
               <button 
                 onClick={() => onSelectTest(chapter)}

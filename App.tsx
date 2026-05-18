@@ -9,7 +9,10 @@ import LessonStudyView from './views/LessonStudyView';
 import TestView from './views/TestView';
 import QuizView from './views/QuizView';
 import LessonDetailView from './views/LessonDetailView'; // Keep for curriculum drill-down
+import SemesterPlanner from './views/SemesterPlanner';
+import ExamCenter from './views/ExamCenter';
 import { Chapter } from './types';
+import { CURRICULUM } from './constants';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState('dashboard');
@@ -64,9 +67,11 @@ const App: React.FC = () => {
     }
 
     switch (currentView) {
-      case 'dashboard': return <Dashboard onResume={() => handleLaunchLesson({ id: 1, title: "Advanced Function Analysis I", weeks: "1–2", focus: "Parent functions, transformations, composition, and inverses.", standards: ["F-IF.7", "F-BF.3", "F-BF.4"], semester: 1, description: "Master parent functions and their transformations. Study function composition (f ∘ g) and the conditions for inverses." })} />;
+      case 'dashboard': return <Dashboard onResume={() => handleLaunchLesson(CURRICULUM[0])} />;
       case 'curriculum': return <CurriculumView onLaunch={handleLaunchLesson} />;
       case 'study': return <StudyHub onSelectLesson={setActiveTeachingLesson} onSelectTest={setActiveTest} onSelectQuiz={setActiveQuiz} />;
+      case 'planner': return <SemesterPlanner />;
+      case 'exams': return <ExamCenter />;
       case 'lens': return <LensView initialPrompt={lensInitialPrompt} />;
       case 'cheatsheets': 
         return (
@@ -98,6 +103,8 @@ const App: React.FC = () => {
             <option value="dashboard">Dashboard</option>
             <option value="curriculum">Curriculum</option>
             <option value="study">Study Center</option>
+            <option value="planner">Semester Planner</option>
+            <option value="exams">Exam Center</option>
             <option value="lens">Honors Lens</option>
             <option value="cheatsheets">Cheat Sheets</option>
           </select>
